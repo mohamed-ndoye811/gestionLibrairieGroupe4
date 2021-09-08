@@ -296,13 +296,6 @@ class Model
 
     /* ==== Insert ==== */
 
-    public function insert_fournisseurs($data)
-    {
-        $result = $this->db->prepare(
-            "SELECT * FROM `fournisseurs` WHERE `Id_fournisseur`=?;"
-        );
-    }
-
     public function fournisseurs_confirmInsert($tab)
     {
         $result = $this->db->prepare(
