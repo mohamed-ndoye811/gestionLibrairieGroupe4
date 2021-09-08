@@ -45,5 +45,7 @@
         $_SESSION['auth'] = false;
         $_SESSION = [];
         $this->render("deconnect");
+        // Ligne de redirection pour avoir le bouton de deconnexion et le nom d'auth sans délai
+        echo '<meta http-equiv="refresh" content="2;url=?controller=auth&action=default" />';
     }
 }
