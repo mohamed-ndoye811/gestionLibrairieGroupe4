@@ -11,11 +11,16 @@
 </head>
 
 <body>
-    <header></header>
+<?php
+    // import du header et du footer
+    require_once("../header.php");
+    require_once("../footer.php");
+    ?>
 
     <main>
+    <h1>Insertion de Commande</h1>
         <form action='../traitement/traitementInserComm.php' method='POST'>
-            <h1>Insertion de Commande</h1>
+            
 
             <?php
 
@@ -32,44 +37,49 @@
 
                 $livresRequest = mysqli_query($DB, $livresRequest);
                 $livres = mysqli_fetch_all($livresRequest, MYSQLI_ASSOC);
-                echo '<label for="inserCommIdLivre">Id Livre</label>';
+                echo '<div><label for="inserCommIdLivre">Id Livre</label>';
                 echo "<select name='inserCommIdLivre' required>";
                 foreach ($livres as $livre) {
                     echo "<option value='" . $livre['Id_Livre'] . "'>" . $livre['Id_Livre'] . " - " . $livre['Titre_livre'] . "</option>";
                 }
-                echo "</select>";
+                echo "</select></div>";
 
                 // Select pour le fournisseur de la commande
                 $fournisseursRequest = "SELECT Id_fournisseur, Raison_sociale FROM fournisseurs";
 
                 $fournisseursRequest = mysqli_query($DB, $fournisseursRequest);
                 $fournisseurs = mysqli_fetch_all($fournisseursRequest, MYSQLI_ASSOC);
-                echo '<label for="inserCommIdFour">Id Fournisseur</label>';
+                echo '<div><label for="inserCommIdFour">Id Fournisseur</label>';
                 echo "<select name='inserCommIdFour' required>";
                 foreach ($fournisseurs as $fournisseur) {
                     echo "<option value='" . $fournisseur['Id_fournisseur'] . "'>" . $fournisseur['Id_fournisseur'] . " - " . $fournisseur['Raison_sociale'] . "</option>";
                 }
-                echo "</select>";
+                echo "</select></div>";
 
                 mysqli_close($DB);
             }
 
             ?>
 
-            <label for="inserCommDateAchat">Date achat</label>
-            <input type="date" name="inserCommDateAchat" id="inserCommDateAchat">
+            <div>
+                <label for="inserCommDateAchat">Date achat</label>
+                <input type="date" name="inserCommDateAchat" id="inserCommDateAchat">
+            </div>
 
-            <label for="inserCommPrix">Prix</label>
-            <input type="text" name="inserCommPrix" id="inserCommPrix" required>
+            <div>
+                <label for="inserCommPrix">Prix</label>
+                <input type="text" name="inserCommPrix" id="inserCommPrix" required>
+            </div>
 
-            <label for="inserCommNbExemplaires">Nombre d'exemplaires </label>
-            <input type="text" name="inserCommNbExemplaires" id="inserCommNbExemplaires" required>
+            <div>
+                <label for="inserCommNbExemplaires">Nombre d'exemplaires </label>
+                <input type="text" name="inserCommNbExemplaires" id="inserCommNbExemplaires" required>
+            </div>
 
             <br><br>
             <input type="submit">
     </main>
 
-    <footer></footer>
 </body>
 
 </html>

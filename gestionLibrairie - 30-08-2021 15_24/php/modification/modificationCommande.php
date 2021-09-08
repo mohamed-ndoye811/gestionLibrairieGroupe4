@@ -31,57 +31,53 @@
             $comandeInfosRequest = "SELECT * FROM commander WHERE id_commande = " . $commandeID;
 
             $comandeInfosRequest = mysqli_query($DB, $comandeInfosRequest);
+            echo '<h3>Commande N°' . $commandeID . '</h3>';
 
             echo "<form action='../traitement/traitementModifComm.php' method='POST'>";
 
             while ($commandeInfos = mysqli_fetch_assoc($comandeInfosRequest)) {
-                echo '<h3>Commande N°' . $commandeID . '</h3>';
+                
 
                 // Select pour le livre à commander
                 $livresRequest = "SELECT Id_Livre, Titre_livre FROM livres";
 
                 $livresRequest = mysqli_query($DB, $livresRequest);
                 $livres = mysqli_fetch_all($livresRequest, MYSQLI_ASSOC);
-                echo '<label for="modifCommIdLivre">Id Livre</label>';
+                echo '<div><label for="modifCommIdLivre">Id Livre</label>';
                 echo "<select name='modifCommIdLivre' required>";
                 foreach ($livres as $livre) {
-                    echo "<option value='" . $livre['Id_Livre'] . "'";
-
-                    if ($livre['Id_Livre'] == $commandeInfos['Id_Livre']) {
-                        echo "selected";
-                    }
-                    
-                    echo ">" . $livre['Id_Livre'] . " - " . $livre['Titre_livre']  . "</option>";
+                    echo "<option value='" . $livre['Id_Livre'] . "'>" . $livre['Id_Livre'] . " - " . $livre['Titre_livre'] . "</option>";
                 }
-                echo "</select>";
+                echo "</select></div>";
 
                 // Select pour le fournisseur de la commande
-                $fournisseursRequest = "SELECT Id_fournisseur, Raison_sociale FROM fournisseurs "; 
+                $fournisseursRequest = "SELECT Id_fournisseur, Raison_sociale FROM fournisseurs"; 
 
                 $fournisseursRequest = mysqli_query($DB, $fournisseursRequest);
                 $fournisseurs = mysqli_fetch_all($fournisseursRequest, MYSQLI_ASSOC);
-                echo '<label for="modifCommIdFour">Id Fournisseur</label>';
+                echo '<div><label for="modifCommIdFour">Id Fournisseur</label>';
                 echo "<select name='modifCommIdFour' required>";
                 foreach ($fournisseurs as $fournisseur) {
-                    echo "<option value='" . $fournisseur['Id_fournisseur'] . "'";
-
-                    if ($fournisseur['Id_fournisseur'] == $commandeInfos['Id_fournisseur']) {
-                        echo "selected";
-                    }
-                    
-                    echo ">" . $fournisseur['Id_fournisseur'] . " - " . $fournisseur['Raison_sociale'] . "</option>";
+                    echo "<option value='" . $fournisseur['Id_fournisseur'] . "'>" . $fournisseur['Id_fournisseur'] . " - " . $fournisseur['Raison_sociale'] . "</option>";
                 }
-                echo "</select>";
+                echo "</select></div>";
                 echo '
 
+
+                <div>
                 <label for="modifCommDateAchat">Date achat</label>
                 <input type="text" name="modifCommDateAchat" id="modifCommDateAchat" value="' . $commandeInfos['Date_achat'] . '" required>
+                </div>
                 
+                <div>
                 <label for="modifCommPrix">Prix</label>
                 <input type="text" name="modifCommPrix" id="modifCommPrix" value="' . $commandeInfos['Prix_achat'] . '" required>
+                </div>
 
+                <div>
                 <label for="modifCommNbExemplaires">Nombre d\'exemplaires </label>
                 <input type="text" name="modifCommNbExemplaires" id="modifCommNbExemplaires" value="' . $commandeInfos['Nbr_exemplaires'] . '" required>
+                </div>
 
                 <br><br>
                 <input type="submit" value="Modifier">

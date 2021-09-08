@@ -34,39 +34,58 @@
     <main>
         <h1>Modification de Fournisseurs</h1>
     <form action="../traitement/traitementModifFour.php" method="POST">
+        <div>
             <label for="codeModifFour">Code Fournisseur</label>
             <input type="text" name="codeModifFour" id="codeModifFour" value="<?=$donnees['Code_fournisseur']?>" required>
+        </div>
 
+        <div>
             <label for="raisonModifFour">Raison sociale</label>
             <input type="text" name="raisonModifFour" id="raisonModifFour" value="<?=$donnees['Raison_sociale']?>" required>
+        </div>
 
+        <div>
             <label for="rueModifFour">Rue</label>
             <input type="text" name="rueModifFour" id="rueModifFour" value="<?=$donnees['Rue_fournisseur']?>">
+        </div>
 
+        <div>
             <label for="cpModifFour">Code Postal</label>
             <input type="text" name="cpModifFour" id="cpModifFour" value="<?=$donnees['Code_postal']?>">
+        </div>
 
+        <div>
             <label for="villeModifFour">Ville</label>
             <input type="text" name="villeModifFour" id="villeModifFour" value="<?=$donnees['Localite']?>">
+        </div>
 
+        <div>
             <label for="paysModifFour">Pays</label>
             <input type="text" name="paysModifFour" id="paysModifFour" value="<?=$donnees['Pays']?>">
+        </div>
 
+        <div>
             <label for="telModifFour">Téléphone</label>
             <input type="text" name="telModifFour" id="telModifFour" value="<?=$donnees['Tel_fournisseur']?>">
+        </div>
 
+
+        <div>
             <label for="urlModifFour">Site internet</label>
             <input type="text" name="urlModifFour" id="urlModifFour" value="<?=$donnees['Url_fournisseur']?>">
+        </div>
 
+        <div>
             <label for="mailModifFour">E-mail</label>
             <input type="text" name="mailModifFour" id="mailModifFour" value="<?=$donnees['Email_fournisseur']?>">
+        </div>
 
+        <div>
             <label for="faxModifFour">Fax</label>
             <input type="text" name="faxModifFour" id="faxModifFour" value="<?=$donnees['Fax_fournisseur']?>">
+        </div>
 
-            <div class="buttons">
-                <button type="submit" class="button">Envoyer</button>
-            </div>
+        <input type="submit" value="Modifier">
         </form>
     </main>
 </body>
