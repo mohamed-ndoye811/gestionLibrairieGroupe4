@@ -7,7 +7,7 @@
 
     public function action_home()
     {
-        $this->render('home');
+        $this->action_default();
     }
 
     public function action_inscription()
