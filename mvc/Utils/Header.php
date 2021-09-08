@@ -14,11 +14,8 @@
                 </g>
             </svg>
         </a>
-        <?php
-        if ((isset($_SESSION['Prenom'])) && (isset($_SESSION['Nom']))) {
-            echo '<p>Bienvenue ' . $_SESSION['Prenom'] . ' ' . $_SESSION['Nom'] . '</p>';
-        }
-        ?>
+        <?php if ((isset($_SESSION['Prenom'])) && (isset($_SESSION['Nom']))) : ?>
+        <p>Bienvenue <?= $_SESSION['Prenom'] . ' ' . $_SESSION['Nom'] ?></p>
         <a href='?controller=auth&action=deconnect' id="signOutButton">
             <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="24px"
                 fill="#FFFFFF">
@@ -28,6 +25,7 @@
                 </g>
             </svg>
         </a>
+        <?php endif ?>
     </div>
     <div id='burgerButton'>
         <svg id='burger' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"

@@ -463,23 +463,12 @@ class Model
 
     public function commandes_confirmInsert($tab)
     {
-        foreach ($tab as $property => $value) {
-            // $$property = addslashes($value);
-            $$property = addslashes($value);
-        }
-
-        // Si inserCommDateAchat est vide (qu'aucune date n'a été entrée), alors il prendra la valeur CURRENT_TIMESTAMP
-        $inserCommDateAchat = empty($inserCommDateAchat) ? 'CURRENT_TIMESTAMP' : "'$inserCommDateAchat'";
-
-        $request = "INSERT INTO 
+        // Insertion des données
+        $result = $this->db->prepare("INSERT INTO 
         `commander`(`id_commande`, `Id_Livre`, `Id_fournisseur`, `Date_achat`, `Prix_achat`, `Nbr_exemplaires`) 
         VALUES 
-        (NULL,?,?,$inserCommDateAchat,?,?);";
-
-        // Insertion des données
-        $result = $this->db->prepare($request);
+        (NULL,?,?,CURRENT_TIMESTAMP,?,?);");
         $i = 1;
-        print_r($tab);
 
         foreach ($tab as $key => $value) {
             if ($key == 'inserCommDateAchat') {

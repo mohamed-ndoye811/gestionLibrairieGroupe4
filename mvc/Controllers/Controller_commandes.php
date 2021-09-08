@@ -132,6 +132,5 @@ class Controller_commandes extends Controller
 
         $m->commandes_confirmInsert($tab);
         $this->action_all_commandes();
-        print_r($tab);
     }
 }
