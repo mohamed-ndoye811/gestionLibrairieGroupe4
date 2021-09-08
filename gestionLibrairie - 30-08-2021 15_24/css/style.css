@@ -20,7 +20,7 @@
   box-sizing: border-box;
   font-family: Questa, serif;
 }
- 
+
 /* -- Body */
 body {
   width: 100%;
@@ -29,31 +29,30 @@ body {
   background-color: var(--colorBeige);
   color: var(--colorRed);
   display: grid;
-  row-gap: 1.5rem;
   grid-template-rows: 7vh auto 7vh;
   grid-template-areas:
     "header"
     "main"
     "footer";
 }
- 
+
 header {
   display: flex;
 }
- 
+
 /* -- Main */
 main {
   grid-area: main;
   width: 80%;
   margin: 0 auto;
 }
- 
+
 /* -- Links */
 a {
   text-decoration: none;
   color: inherit; /* Take the color set on the parent element */
 }
- 
+
 /* -- Button */
 button {
   background-color: var(--colorRed);
@@ -61,57 +60,20 @@ button {
   padding: 0.5rem 1.75rem;
   border: none;
   border-radius: 0.25rem;
-  width: 100%;
 }
- 
-button:hover {
-  cursor: pointer;
-}
- 
+
 /* -- Form Inputs and elements */
 input {
   border: none;
   border-bottom: 0.15rem solid var(--colorRed);
   background-color: inherit;
-  width: 100%;
 }
- 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  box-shadow: 0 0 0px 1000px var(--colorBeige) inset;
-  -webkit-box-shadow: 0 0 0px 1000px var(--colorBeige) inset;
-}
- 
-input:focus {
-  outline: none;
-}
- 
-input::-webkit-input-placeholder {
-  color: var(--colorBrown);
-  opacity: 0.8;
-}
- 
-input::-moz-placeholder {
-  color: var(--colorBrown);
-  opacity: 0.8;
-}
- 
-input:-ms-input-placeholder {
-  color: var(--colorBrown);
-  opacity: 0.8;
-}
- 
-input::-ms-input-placeholder {
-  color: var(--colorBrown);
-  opacity: 0.8;
-}
- 
+
 input::placeholder {
   color: var(--colorBrown);
   opacity: 0.8;
 }
- 
+
 /* -- Titles */
 h1,
 h2,
@@ -121,11 +83,11 @@ h5,
 h6 {
   color: var(--colorRed);
 }
- 
+
 h1 {
   font-style: italic;
 }
- 
+
 /* -- Home Nav and buttons */
 .homeNav {
   list-style: none;
@@ -135,11 +97,11 @@ h1 {
   flex-direction: column;
   align-items: center;
 }
- 
+
 .homeNav li {
   width: 100%;
 }
- 
+
 .homeNav .button {
   display: grid;
   place-content: center;
@@ -148,41 +110,41 @@ h1 {
   height: 5rem;
   border-radius: 0.5rem;
 }
- 
+
 .homeNav .button:hover {
   background: var(--colorRed);
   color: var(--colorBeige);
 }
- 
+
 /* -- Tables */
 table {
   width: 100%;
 }
- 
+
 tr {
   background: var(--colorBeige);
   color: var(--colorRed);
   border: 1px solid var(--colorRed);
 }
- 
+
 tbody > tr:nth-of-type(even) {
   background: rgba(146, 36, 36, 0.25);
   color: var(--colorRed);
 }
- 
+
 td,
 th {
   text-align: left;
   padding: 0.5rem 0.25rem;
 }
- 
+
 /* -- Phone table display */
 @media screen and (max-width: 600px) {
   td,
   th {
     font-size: 0.75rem;
   }
- 
+
   /* Force table to not be like tables anymore */
   table,
   thead,
@@ -192,19 +154,18 @@ th {
   tr {
     display: block;
   }
- 
+
   thead {
     display: none;
   }
- 
+
   td {
     /* Behave  like a "row" */
     border: none;
     position: relative;
     padding-left: 50%;
-    white-space: normal;
   }
- 
+
   td:before {
     content: attr(data-cellTitle);
     /* Now like a table header */
@@ -218,9 +179,9 @@ th {
     font-weight: 700;
   }
 }
- 
+
 /*===Header===*/
- 
+
 header {
   height: 7vh;
   display: flex;
@@ -230,35 +191,27 @@ header {
   background-color: var(--colorRed);
   grid-area: header;
 }
- 
+
 header svg {
   fill: #dec8ae;
 }
- 
+
 header div a svg {
   height: 100%;
 }
- 
+
 .flex {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
- 
+
 header nav,
 #cross {
   display: none;
 }
- 
+
 /* ===Header menu burger opened=== */
-@-webkit-keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -277,11 +230,8 @@ header nav,
   position: absolute;
   top: 7vh;
   right: 0;
-  -webkit-animation-name: fadein;
   animation-name: fadein;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
 }
 .opened li {
@@ -289,32 +239,32 @@ header nav,
   margin-right: 5px;
   height: 50px;
 }
- 
+
 .opened li a {
   color: var(--colorBeige);
 }
- 
+
 /* ===Header Responsive==*/
- 
+
 @media screen and (min-width: 600px) {
   header nav {
     display: flex;
   }
- 
+
   #burgerButton {
     display: none;
   }
- 
+
   header nav li {
     list-style-type: none;
     margin-right: 5px;
   }
- 
+
   header nav li a {
     color: var(--colorBeige);
   }
 }
- 
+
 /* ===Footer=== */
 footer {
   min-height: 7vh;
@@ -326,7 +276,7 @@ footer {
   background-color: var(--colorRed);
   grid-area: footer;
 }
- 
+
 footer a {
   color: var(--colorBeige);
   margin-left: 5px;
@@ -334,17 +284,17 @@ footer a {
 
 
 /* === Form for mobile === */
- 
+
 form {
   display: flex;
   flex-direction: column;
 }
- 
+
 form > div {
   display: flex;
   flex-direction: column;
 }
- 
+
 /* === Form for tablets ===*/
 @media screen and (min-width:600px) and (max-width:899px) {
   form{
@@ -353,9 +303,9 @@ form > div {
   }
   
 }
- 
+
 /* === Form for tablets and little desktop */
- 
+
 @media screen and (min-width:900px) and (max-width:1199px) {
   form{
     display: grid;
@@ -365,95 +315,30 @@ form > div {
   form h3 {
     grid-column: 1/4;
   }
-  
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    grid-row: 2;
+  }
 }
- 
+
 /* === Form for desktop */
- 
+
 @media screen and (min-width:1200px) {
   form{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 0.5rem;
   }
- 
+
   form h3 {
     grid-column: 1/5;
   }
   
-}
-
-/* === Accueil === */
-#accueil {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.5rem;
-  transform: translateY(-5%);
-}
- 
-@media screen and (min-width: 900px) {
-  .homeNav {
-    flex-direction: row;
-    height: 50%;
-    font-size: 2rem;
-    font-weight: 500;
-  }
- 
-  .homeNav li {
-    height: 100%;
-  }
- 
-  .homeNav .button {
-    height: 100%;
-  }
-}
- 
-/* -- Login Page */
-@media screen and (min-width: 900px) {
-  input {
-    border-bottom: 0.2rem solid var(--colorRed);
-    font-size: 1.5rem;
-  }
- 
-  #loginPage {
-    display: grid;
-    place-content: center;
-    font-size: 1.5rem;
-    row-gap: 2rem;
-  }
- 
-  #loginPage h1 {
-    text-align: center;
-  }
- 
-  #loginPage form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 1.5rem;
-    -moz-column-gap: 1.25rem;
-    column-gap: 1.25rem;
-  }
- 
-  #loginPage form .password,
-  #loginPage form .buttons {
-    grid-column: span 2;
-  }
- 
-  #loginPage form .buttons {
+  .buttons {
+    grid-row: 2;
     display: flex;
-    gap: 1.25rem;
-  }
- 
-  #loginPage form .buttons button {
-    font-size: 1.25rem;
-    padding: 0.75rem 1rem;
+    flex-direction: row;
+    
   }
 }
- 
-/* -- Sign Out Page */
-#signOut {
-  display: grid;
-  place-content: center;
-}
-

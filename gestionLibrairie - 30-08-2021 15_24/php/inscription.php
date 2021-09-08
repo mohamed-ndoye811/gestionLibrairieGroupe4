@@ -11,15 +11,22 @@
 
 <body>
     <main>
+    <h1>Inscription</h1>
         <form action="./traitement/traitementInscription.php" method="POST">
+            <div>
             <label for="loginNom">Nom</label>
             <input type="text" name="loginNom" id="loginNom" required>
+            </div>
 
+            <div>
             <label for="loginPrenom">Prenom</label>
             <input type="text" name="loginPrenom" id="loginPrenom">
+            </div>
 
+            <div>
             <label for="loginPassword">Mot de passe</label>
             <input type="password" name="loginPassword" id="loginPassword" required>
+            </div>
 
             <div class="buttons">
                 <button type="submit">Créer compte</button>
