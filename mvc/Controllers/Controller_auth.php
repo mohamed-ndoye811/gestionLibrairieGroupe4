@@ -1,5 +1,4 @@
-<?php
-class Controller_auth extends Controller
+<?php class Controller_auth extends Controller
 {
     public function action_default()
     {
@@ -8,7 +7,7 @@ class Controller_auth extends Controller
 
     public function action_home()
     {
-        $this->render('home');
+        $this->action_default();
     }
 
     public function action_inscription()
@@ -34,7 +33,8 @@ class Controller_auth extends Controller
             $_SESSION['Prenom'] = $data['Prenom'];
             $_SESSION['Admin'] = $data['Admin'];
             $_SESSION['auth'] = true;
-            $this->action_home();
+            // Ligne de redirection pour avoir le bouton de deconnexion et le nom d'auth sans délai
+            echo '<meta http-equiv="refresh" content="0;url=?controller=home&action=home" />';
         } else {
             $this->action_default();
         }
@@ -45,5 +45,7 @@ class Controller_auth extends Controller
         $_SESSION['auth'] = false;
         $_SESSION = [];
         $this->render("deconnect");
+        // Ligne de redirection pour avoir le bouton de deconnexion et le nom d'auth sans délai
+        echo '<meta http-equiv="refresh" content="2;url=?controller=auth&action=default" />';
     }
 }

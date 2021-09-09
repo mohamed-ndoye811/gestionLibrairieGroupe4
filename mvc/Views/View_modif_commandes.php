@@ -1,5 +1,5 @@
 <main>
-    <h3>Commande N°$commandeID</h3>
+    <h3>Commande N°<?= $commandeInfos['id_commande'] ?></h3>
 
     <form action='?controller=commandes&action=confirmEdit' method='POST'>
         <div>
@@ -37,12 +37,6 @@
         </div>
 
         <div>
-            <label for="modifCommDateAchat">Date achat</label>
-            <input type="text" name="modifCommDateAchat" id="modifCommDateAchat"
-                value="<?= $commandeInfos['Date_achat'] ?>" required>
-        </div>
-
-        <div>
             <label for="modifCommPrix">Prix</label>
             <input type="text" name="modifCommPrix" id="modifCommPrix" value="<?= $commandeInfos['Prix_achat'] ?>"
                 required>
@@ -54,7 +48,7 @@
                 value="<?= $commandeInfos['Nbr_exemplaires'] ?>" required>
         </div>
 
-        <br><br>
+
         <div class="buttons">
             <button type="reset">Effacer</button>
             <button type="submit" class="button">Modifier</button>

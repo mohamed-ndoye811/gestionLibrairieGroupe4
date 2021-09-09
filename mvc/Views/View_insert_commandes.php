@@ -26,11 +26,6 @@
         </div>
 
         <div>
-            <label for="inserCommDateAchat">Date achat</label>
-            <input type="date" name="inserCommDateAchat" id="inserCommDateAchat">
-        </div>
-
-        <div>
             <label for="inserCommPrix">Prix</label>
             <input type="text" name="inserCommPrix" id="inserCommPrix" required>
         </div>

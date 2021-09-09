@@ -21,24 +21,21 @@
     $controllers = ["home", "livres", "fournisseurs", "commandes", "auth"];
     $controller_default = "home";
 
-    if (isset($_SESSION['auth'])) {
-        if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
-            $nom_controller = $_GET['controller'];
-        } else {
-            $nom_controller = $controller_default;
-        }
+
+    if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
+        $nom_controller = empty($_SESSION['auth']) ? "auth" :  $_GET['controller'];
     } else {
-        $nom_controller = "auth";
+        $nom_controller = empty($_SESSION['auth']) ? "auth" :  $controller_default;
     }
 
     $nom_classe = 'Controller_' . $nom_controller;
+
     $nom_fichier = "Controllers/" . $nom_classe . ".php";
 
     if (file_exists($nom_fichier)) {
         require_once($nom_fichier);
         $controller = new $nom_classe();
     } else {
-
         exit("page not found !");
     }
 
