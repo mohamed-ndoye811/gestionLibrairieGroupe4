@@ -1,5 +1,5 @@
 <main>
-    <h3>Commande N°$commandeID</h3>
+    <h3>Commande N°<?= $commandeInfos['id_commande'] ?></h3>
 
     <form action='?controller=commandes&action=confirmEdit' method='POST'>
         <div>
@@ -34,12 +34,6 @@
                 }
                 ?>
             </select>
-        </div>
-
-        <div>
-            <label for="modifCommDateAchat">Date achat</label>
-            <input type="text" name="modifCommDateAchat" id="modifCommDateAchat"
-                value="<?= $commandeInfos['Date_achat'] ?>" required>
         </div>
 
         <div>
