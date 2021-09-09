@@ -10,17 +10,19 @@
 </head>
 
 <body>
-    <?php
-    session_start();
-    echo "<h1>Vous allez être déconnecté</h1>";
-    $_SESSION = array();
-    session_destroy();
-    if (file_exists("../index.php")) {
-        header("refresh:2;url= ../index.php");
-    } else {
-        header("refresh:2;url= ../../index.php");
-    }
-    ?>
+    <main class="deconnexion">
+        <?php
+        session_start();
+        echo "<h1>Vous allez être déconnecté</h1>";
+        $_SESSION = array();
+        session_destroy();
+        if (file_exists("../index.php")) {
+            header("refresh:2;url= ../index.php");
+        } else {
+            header("refresh:2;url= ../../index.php");
+        }
+        ?>
+    </main>
 </body>
 
 </html>

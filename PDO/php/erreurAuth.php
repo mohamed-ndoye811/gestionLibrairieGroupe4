@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,16 @@
     <link rel="stylesheet" href="../css/style.css" />
     <title>Erreur Authentification</title>
 </head>
+
 <body>
-    <main>
+    <main class="errAuth">
         <h1>Erreur d'authentification</h1>
-        <button><a href="../index.php" class="innerButtonLink">S'identifier</a></button>
-        <button><a href="inscription.php" class="innerButtonLink">S'inscrire</a></button>
+        <div class="buttons">
+
+            <button><a href="../index.php" class="innerButtonLink">S'identifier</a></button>
+            <button><a href="inscription.php" class="innerButtonLink">S'inscrire</a></button>
+        </div>
     </main>
 </body>
+
 </html>

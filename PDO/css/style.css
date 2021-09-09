@@ -576,3 +576,18 @@ input {
   display: flex;
   gap: 1rem;
 }
+
+.errAuth {
+  display: grid;
+  place-content: center;
+  row-gap: 1rem;
+}
+
+.errAuth h1 {
+  text-align: center;
+}
+
+.errAuth .buttons {
+  display: flex;
+  gap: 1rem;
+}

@@ -15,7 +15,7 @@
     require_once("./header.php");
     ?>
 
-    <main>
+    <main id="accueil">
         <?php
         echo sprintf(
             "<h1>Bienvenue %s %s</h1>",

@@ -247,7 +247,6 @@ th {
 }
  
 /* === Header === */
- 
 header {
   height: 7vh;
   display: flex;
@@ -611,7 +610,7 @@ input {
   grid-column: span 1;
 }
 
-.authPage form .buttons {
+.authPage form .button {
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -1388,4 +1387,19 @@ main.rgpd .topics p {
 
 main.rgpd .topics p ul li {
   font-size: 1.5rem;
+}
+
+.errAuth {
+  display: grid;
+  place-content: center;
+  row-gap: 1rem;
+}
+
+.errAuth h1 {
+  text-align: center;
+}
+
+.errAuth .buttons {
+  display: flex;
+  gap: 1rem;
 }
