@@ -52,10 +52,10 @@
             <input type="text" name="faxInserFour" id="faxInserFour">
         </div>
 
-        <br><br>
-
-        <input type="reset" value="Effacer">
-        <input type="submit" value="Ajouter">
+        <div class="buttons">
+            <button type="reset">Effacer</button>
+            <button type="submit">Ajouter</button>
+        </div>
     </form>
 </main>
 </body>

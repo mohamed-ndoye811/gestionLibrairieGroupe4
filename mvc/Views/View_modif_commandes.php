@@ -54,7 +54,7 @@
                 value="<?= $commandeInfos['Nbr_exemplaires'] ?>" required>
         </div>
 
-        <br><br>
+
         <div class="buttons">
             <button type="reset">Effacer</button>
             <button type="submit" class="button">Modifier</button>
