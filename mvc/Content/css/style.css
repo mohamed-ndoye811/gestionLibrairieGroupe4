@@ -673,6 +673,13 @@ main.rgpd .topics {
   gap: .75rem;
 }
 
+main.rgpd h1 {
+  font-size: 4rem;
+  font-style: italic;
+  margin-top: -1.5rem;
+  margin-bottom: -3rem;
+}
+
 main.rgpd .topics h2 {
   font-size: 2.25rem;
   font-style: italic;

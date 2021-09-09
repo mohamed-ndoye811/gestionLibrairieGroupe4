@@ -1,4 +1,5 @@
 <main class="rgpd">
+    <h1>Politique de confidentialité</h1>
     <div class="topics">
         <h2>Qui sommes-nous ?</h2>
         <p>Le Greta du Var est de centre de formation dont l’adresse du site internet est http://www.greta.ac-nice.fr/ .
