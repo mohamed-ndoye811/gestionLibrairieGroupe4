@@ -11,5 +11,10 @@ class Controller_home extends Controller
     {
         $this->render('home');
     }
+
+    public function action_RGPD()
+    {
+        $this->render('RGPD');
+    }
 }
 ?>
