@@ -25,7 +25,7 @@
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
         $nom_controller = empty($_SESSION['auth']) ? "auth" :  $_GET['controller'];
     } else {
-        $nom_controller = $controller_default;
+        $nom_controller = empty($_SESSION['auth']) ? "auth" :  $controller_default;
     }
 
     $nom_classe = 'Controller_' . $nom_controller;
