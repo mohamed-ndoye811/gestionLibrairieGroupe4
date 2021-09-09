@@ -3,6 +3,7 @@
 
 :root {
   --colorRed: rgb(146, 36, 36);
+  --colorRedHover: rgb(109, 27, 27);
   --colorBeige: #dec8ae;
   --colorBlack: #000;
   --colorBrown: #5b3f3f;
@@ -20,7 +21,7 @@
   box-sizing: border-box;
   font-family: Questa, serif;
 }
-
+ 
 /* -- Body */
 body {
   width: 100%;
@@ -29,51 +30,113 @@ body {
   background-color: var(--colorBeige);
   color: var(--colorRed);
   display: grid;
+  row-gap: 1.5rem;
   grid-template-rows: 7vh auto 7vh;
   grid-template-areas:
     "header"
     "main"
     "footer";
 }
-
+ 
 header {
   display: flex;
 }
-
+ 
 /* -- Main */
 main {
   grid-area: main;
   width: 80%;
+  height: 100%;
   margin: 0 auto;
 }
-
+ 
 /* -- Links */
 a {
   text-decoration: none;
   color: inherit; /* Take the color set on the parent element */
 }
-
+ 
 /* -- Button */
-button {
+button, .button {
   background-color: var(--colorRed);
   color: var(--colorWhite);
   padding: 0.5rem 1.75rem;
   border: none;
   border-radius: 0.25rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.25rem;
+}
+ 
+button:hover, .button:hover {
+  cursor: pointer;
 }
 
+button a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* -- Fieldset */
+
+.fieldset {
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.fieldset legend {
+  position: relative;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  left: 1rem;
+}
+ 
 /* -- Form Inputs and elements */
 input {
   border: none;
   border-bottom: 0.15rem solid var(--colorRed);
   background-color: inherit;
+  width: 100%;
 }
-
+ 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0px 1000px var(--colorBeige) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--colorBeige) inset;
+}
+ 
+input:focus {
+  outline: none;
+}
+ 
+input::-webkit-input-placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
+input::-moz-placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
+input:-ms-input-placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
+input::-ms-input-placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
 input::placeholder {
   color: var(--colorBrown);
   opacity: 0.8;
 }
-
+ 
 /* -- Titles */
 h1,
 h2,
@@ -83,11 +146,11 @@ h5,
 h6 {
   color: var(--colorRed);
 }
-
+ 
 h1 {
   font-style: italic;
 }
-
+ 
 /* -- Home Nav and buttons */
 .homeNav {
   list-style: none;
@@ -97,11 +160,11 @@ h1 {
   flex-direction: column;
   align-items: center;
 }
-
+ 
 .homeNav li {
   width: 100%;
 }
-
+ 
 .homeNav .button {
   display: grid;
   place-content: center;
@@ -109,42 +172,44 @@ h1 {
   border: 3px solid var(--colorRed);
   height: 5rem;
   border-radius: 0.5rem;
+  background-color: var(--colorBeige);
+  color: var(--colorRed);
 }
-
+ 
 .homeNav .button:hover {
   background: var(--colorRed);
   color: var(--colorBeige);
 }
-
+ 
 /* -- Tables */
 table {
   width: 100%;
 }
-
+ 
 tr {
   background: var(--colorBeige);
   color: var(--colorRed);
   border: 1px solid var(--colorRed);
 }
-
+ 
 tbody > tr:nth-of-type(even) {
   background: rgba(146, 36, 36, 0.25);
   color: var(--colorRed);
 }
-
+ 
 td,
 th {
   text-align: left;
   padding: 0.5rem 0.25rem;
 }
-
+ 
 /* -- Phone table display */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   td,
   th {
     font-size: 0.75rem;
   }
-
+ 
   /* Force table to not be like tables anymore */
   table,
   thead,
@@ -154,18 +219,19 @@ th {
   tr {
     display: block;
   }
-
+ 
   thead {
     display: none;
   }
-
+ 
   td {
     /* Behave  like a "row" */
     border: none;
     position: relative;
     padding-left: 50%;
+    white-space: normal;
   }
-
+ 
   td:before {
     content: attr(data-cellTitle);
     /* Now like a table header */
@@ -179,9 +245,9 @@ th {
     font-weight: 700;
   }
 }
-
-/*===Header===*/
-
+ 
+/* === Header === */
+ 
 header {
   height: 7vh;
   display: flex;
@@ -190,28 +256,140 @@ header {
   color: var(--colorBeige);
   background-color: var(--colorRed);
   grid-area: header;
+  padding: 0 7vw;
+  font-size: 1.25rem;
 }
 
+#logo {
+  max-width: 100px;
+}
+
+.cls-1 {
+  font-size: 23.18px;
+  font-family: Monserrat-Medium, Monserrat;
+  font-weight: 500;
+  letter-spacing: .06em;
+}
+ 
 header svg {
   fill: #dec8ae;
 }
 
-header div a svg {
-  height: 100%;
+#signOutButton {
+  display: flex;
+  align-items: center;
 }
-
+ 
+header div a svg {
+  width: 100%;
+}
+ 
 .flex {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 1rem;
 }
-
+ 
 header nav,
 #cross {
   display: none;
+  position: relative;
+  z-index: 11;
 }
 
-/* ===Header menu burger opened=== */
+header nav {
+  display: none;
+  gap: .825rem;
+  text-align: center;
+}
+
+/* -- Dropdown Button */
+.dropdown {
+  position: relative;
+  display: inline-block ;
+}
+
+.dropdown span {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: block;
+  background-color: var(--colorRed);
+  min-width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 1;
+}
+
+#ddLivre {
+  transform: translateX(-37.5%);
+}
+
+
+.dropdown-content a {
+  display: block;
+  height: 3rem;
+}
+
+.dropdown-content a {
+  display: block grid;
+  place-content: center;
+  height: 3rem;
+  background-color: var(--colorRedHover);
+}
+
+@media screen and (min-width: 600px) {
+  .dropdown-content {
+    display: none;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    left: 0;
+    background-color: var(--colorRed);
+    min-width: 200px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+
+  
+.dropdown-content.open {
+  display: block;
+}
+
+  .dropdown-content a {
+    display: block grid;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: var(--colorRedHover);
+  }
+}
+
+
+ 
+/* === Header menu burger opened === */
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -220,52 +398,61 @@ header nav,
     opacity: 1;
   }
 }
+
 .opened {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  position: absolute;
+  z-index: 10;
   align-items: center;
   background-color: var(--colorRed);
   color: var(--colorBeige);
-  position: absolute;
-  top: 7vh;
+  position: fixed;
+  top: 0vh;
   right: 0;
+  -webkit-animation-name: fadein;
   animation-name: fadein;
+  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
+  height: 100%;
+  width: 100%;
 }
+
 .opened li {
   list-style-type: none;
   margin-right: 5px;
   height: 50px;
 }
-
+ 
 .opened li a {
   color: var(--colorBeige);
 }
-
-/* ===Header Responsive==*/
-
+ 
+/* === Header Responsive ===*/
+ 
 @media screen and (min-width: 600px) {
   header nav {
     display: flex;
   }
-
+ 
   #burgerButton {
     display: none;
   }
-
+ 
   header nav li {
     list-style-type: none;
     margin-right: 5px;
   }
-
+ 
   header nav li a {
     color: var(--colorBeige);
   }
 }
-
-/* ===Footer=== */
+ 
+/* === Footer === */
 footer {
   min-height: 7vh;
   display: flex;
@@ -276,25 +463,34 @@ footer {
   background-color: var(--colorRed);
   grid-area: footer;
 }
-
+ 
 footer a {
   color: var(--colorBeige);
   margin-left: 5px;
+  text-decoration: underline;
 }
 
 
 /* === Form for mobile === */
-
+ 
 form {
   display: flex;
   flex-direction: column;
+  padding: 2rem 0;
+  gap: 1rem;
 }
-
+ 
 form > div {
   display: flex;
   flex-direction: column;
 }
 
+form > div.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+ 
 /* === Form for tablets ===*/
 @media screen and (min-width:600px) and (max-width:899px) {
   form{
@@ -303,28 +499,10 @@ form > div {
   }
   
 }
-
+ 
 /* === Form for tablets and little desktop */
-
+ 
 @media screen and (min-width:900px) and (max-width:1199px) {
-  form{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.5rem;
-  }
-  form h3 {
-    grid-column: 1/4;
-  }
-  .buttons {
-    display: flex;
-    flex-direction: row;
-    grid-row: 2;
-  }
-}
-
-/* === Form for desktop */
-
-@media screen and (min-width:1200px) {
   form{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -332,13 +510,882 @@ form > div {
   }
 
   form h3 {
-    grid-column: 1/5;
+    grid-column: 1/4;
+  }
+
+  form fieldset {
+    grid-column: span 4;
+  }
+
+  form .buttons {
+    grid-column: 2 / 4;
   }
   
-  .buttons {
-    grid-row: 2;
-    display: flex;
-    flex-direction: row;
-    
+}
+ 
+/* === Form for desktop */
+ 
+@media screen and (min-width:1200px) {
+  form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
   }
+ 
+  form h3 {
+    grid-column: 1/5;
+  }
+
+  form fieldset {
+    grid-column: span 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+    row-gap: .75rem;
+    align-items: flex-end;
+  }
+
+  form fieldset label {
+    font-size: 1.25rem;
+  }
+  
+  form .buttons {
+    grid-column: 2 / 4;
+  }
+}
+
+/* === Accueil === */
+#accueil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  transform: translateY(-5%);
+}
+ 
+@media screen and (min-width: 900px) {
+  .homeNav {
+    flex-direction: row;
+    height: 50%;
+    font-weight: 500;
+  }
+ 
+  .homeNav li {
+    height: 100%;
+  }
+ 
+  .homeNav .button {
+    height: 100%;
+    font-size: 2rem;
+  }
+}
+ 
+/* -- Login Page */
+input {
+  border-bottom: 0.2rem solid var(--colorRed);
+  font-size: 1.5rem;
+}
+
+.authPage {
+  display: grid;
+  place-content: center;
+  font-size: 1.5rem;
+  row-gap: 2rem;
+  transform: translateY(-5%);
+}
+
+.authPage h1 {
+  text-align: center;
+}
+
+.authPage form {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+  -moz-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+}
+
+.authPage form * {
+  grid-column: span 1;
+}
+
+.authPage form .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.authPage form .button {
+  font-size: 1.25rem;
+  padding: 0.75rem 1rem;
+}
+
+@media screen and (min-width: 900px) {
+  .authPage form {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.5rem;
+  }
+ 
+  .authPage form .password {
+    grid-column: span 2;
+  }
+ 
+  .authPage form .buttons {
+    flex-direction: row;
+    gap: 1.25rem;
+    grid-column: span 2;
+  }
+}
+ 
+/* -- Sign Out Page */
+#signOut {
+  display: grid;
+  place-content: center;
+}
+
+/* -- Deconnexion */
+.deconnexion {
+  display: grid;
+  place-content: center;
+}
+
+/* -- Page suppression */
+
+#pageSuppression .buttons{
+  display: flex;
+  gap: 1rem;
+}
+
+/* === RGPC === */
+
+main.rgpd{
+   display: flex;
+   flex-direction: column;
+   gap: 4rem;
+   padding: 3rem 0;
+}
+
+main.rgpd .topics {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+main.rgpd h1 {
+  font-size: 4rem;
+  font-style: italic;
+  margin-top: -1.5rem;
+  margin-bottom: -3rem;
+}
+
+main.rgpd .topics h2 {
+  font-size: 2.25rem;
+  font-style: italic;
+}
+
+main.rgpd .topics p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding-left: 1.75rem;
+}
+
+main.rgpd .topics p ul li {
+  font-size: 1.5rem;
+}/* === Imports et variables === */
+@import url("https://use.typekit.net/bqd8hqg.css");
+
+:root {
+  --colorRed: rgb(146, 36, 36);
+  --colorRedHover: rgb(109, 27, 27);
+  --colorBeige: #dec8ae;
+  --colorBlack: #000;
+  --colorBrown: #5b3f3f;
+  --colorWhite: #fafafa;
+
+  font-family: Questa, serif;
+  font-size: 15px;
+}
+
+/* === General styles === */
+/* -- Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Questa, serif;
+}
+ 
+/* -- Body */
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: var(--colorBeige);
+  color: var(--colorRed);
+  display: grid;
+  row-gap: 1.5rem;
+  grid-template-rows: 7vh auto 7vh;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+ 
+header {
+  display: flex;
+}
+ 
+/* -- Main */
+main {
+  grid-area: main;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+ 
+/* -- Links */
+a {
+  text-decoration: none;
+  color: inherit; /* Take the color set on the parent element */
+}
+ 
+/* -- Button */
+button, .button {
+  background-color: var(--colorRed);
+  color: var(--colorWhite);
+  padding: 0.5rem 1.75rem;
+  border: none;
+  border-radius: 0.25rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.25rem;
+}
+ 
+button:hover, .button:hover {
+  cursor: pointer;
+}
+
+button a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* -- Fieldset */
+
+.fieldset {
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.fieldset legend {
+  position: relative;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  left: 1rem;
+}
+ 
+/* -- Form Inputs and elements */
+input {
+  border: none;
+  border-bottom: 0.15rem solid var(--colorRed);
+  background-color: inherit;
+  width: 100%;
+}
+ 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0px 1000px var(--colorBeige) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--colorBeige) inset;
+}
+ 
+input:focus {
+  outline: none;
+}
+ 
+input::-webkit-input-placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
+input::-moz-placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
+input:-ms-input-placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
+input::-ms-input-placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
+input::placeholder {
+  color: var(--colorBrown);
+  opacity: 0.8;
+}
+ 
+/* -- Titles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--colorRed);
+}
+ 
+h1 {
+  font-style: italic;
+}
+ 
+/* -- Home Nav and buttons */
+.homeNav {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+}
+ 
+.homeNav li {
+  width: 100%;
+}
+ 
+.homeNav .button {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  border: 3px solid var(--colorRed);
+  height: 5rem;
+  border-radius: 0.5rem;
+  background-color: var(--colorBeige);
+  color: var(--colorRed);
+}
+ 
+.homeNav .button:hover {
+  background: var(--colorRed);
+  color: var(--colorBeige);
+}
+ 
+/* -- Tables */
+table {
+  width: 100%;
+}
+ 
+tr {
+  background: var(--colorBeige);
+  color: var(--colorRed);
+  border: 1px solid var(--colorRed);
+}
+ 
+tbody > tr:nth-of-type(even) {
+  background: rgba(146, 36, 36, 0.25);
+  color: var(--colorRed);
+}
+ 
+td,
+th {
+  text-align: left;
+  padding: 0.5rem 0.25rem;
+}
+ 
+/* -- Phone table display */
+@media screen and (max-width: 900px) {
+  td,
+  th {
+    font-size: 0.75rem;
+  }
+ 
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+ 
+  thead {
+    display: none;
+  }
+ 
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+  }
+ 
+  td:before {
+    content: attr(data-cellTitle);
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+}
+ 
+/* === Header === */
+ 
+header {
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--colorBeige);
+  background-color: var(--colorRed);
+  grid-area: header;
+  padding: 0 7vw;
+  font-size: 1.25rem;
+}
+
+#logo {
+  max-width: 100px;
+}
+
+.cls-1 {
+  font-size: 23.18px;
+  font-family: Monserrat-Medium, Monserrat;
+  font-weight: 500;
+  letter-spacing: .06em;
+}
+ 
+header svg {
+  fill: #dec8ae;
+}
+
+#signOutButton {
+  display: flex;
+  align-items: center;
+}
+ 
+header div a svg {
+  width: 100%;
+}
+ 
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 1rem;
+}
+ 
+header nav,
+#cross {
+  display: none;
+  position: relative;
+  z-index: 11;
+}
+
+header nav {
+  display: none;
+  gap: .825rem;
+  text-align: center;
+}
+
+/* -- Dropdown Button */
+.dropdown {
+  position: relative;
+  display: inline-block ;
+}
+
+.dropdown span {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: block;
+  background-color: var(--colorRed);
+  min-width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 1;
+}
+
+#ddLivre {
+  transform: translateX(-37.5%);
+}
+
+
+.dropdown-content a {
+  display: block;
+  height: 3rem;
+}
+
+.dropdown-content a {
+  display: block grid;
+  place-content: center;
+  height: 3rem;
+  background-color: var(--colorRedHover);
+}
+
+@media screen and (min-width: 600px) {
+  .dropdown-content {
+    display: none;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    left: 0;
+    background-color: var(--colorRed);
+    min-width: 200px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+
+  
+.dropdown-content.open {
+  display: block;
+}
+
+  .dropdown-content a {
+    display: block grid;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: var(--colorRedHover);
+  }
+}
+
+
+ 
+/* === Header menu burger opened === */
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.opened {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  z-index: 10;
+  align-items: center;
+  background-color: var(--colorRed);
+  color: var(--colorBeige);
+  position: fixed;
+  top: 0vh;
+  right: 0;
+  -webkit-animation-name: fadein;
+  animation-name: fadein;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  height: 100%;
+  width: 100%;
+}
+
+.opened li {
+  list-style-type: none;
+  margin-right: 5px;
+  height: 50px;
+}
+ 
+.opened li a {
+  color: var(--colorBeige);
+}
+ 
+/* === Header Responsive ===*/
+ 
+@media screen and (min-width: 600px) {
+  header nav {
+    display: flex;
+  }
+ 
+  #burgerButton {
+    display: none;
+  }
+ 
+  header nav li {
+    list-style-type: none;
+    margin-right: 5px;
+  }
+ 
+  header nav li a {
+    color: var(--colorBeige);
+  }
+}
+ 
+/* === Footer === */
+footer {
+  min-height: 7vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: var(--colorBeige);
+  background-color: var(--colorRed);
+  grid-area: footer;
+}
+ 
+footer a {
+  color: var(--colorBeige);
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+
+/* === Form for mobile === */
+ 
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  gap: 1rem;
+}
+ 
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+form > div.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+ 
+/* === Form for tablets ===*/
+@media screen and (min-width:600px) and (max-width:899px) {
+  form{
+    max-width:500px;
+    margin:0 auto;
+  }
+  
+}
+ 
+/* === Form for tablets and little desktop */
+ 
+@media screen and (min-width:900px) and (max-width:1199px) {
+  form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  form h3 {
+    grid-column: 1/4;
+  }
+
+  form fieldset {
+    grid-column: span 4;
+  }
+
+  form .buttons {
+    grid-column: 2 / 4;
+  }
+  
+}
+ 
+/* === Form for desktop */
+ 
+@media screen and (min-width:1200px) {
+  form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+ 
+  form h3 {
+    grid-column: 1/5;
+  }
+
+  form fieldset {
+    grid-column: span 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+    row-gap: .75rem;
+    align-items: flex-end;
+  }
+
+  form fieldset label {
+    font-size: 1.25rem;
+  }
+  
+  form .buttons {
+    grid-column: 2 / 4;
+  }
+}
+
+/* === Accueil === */
+#accueil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  transform: translateY(-5%);
+}
+ 
+@media screen and (min-width: 900px) {
+  .homeNav {
+    flex-direction: row;
+    height: 50%;
+    font-weight: 500;
+  }
+ 
+  .homeNav li {
+    height: 100%;
+  }
+ 
+  .homeNav .button {
+    height: 100%;
+    font-size: 2rem;
+  }
+}
+ 
+/* -- Login Page */
+input {
+  border-bottom: 0.2rem solid var(--colorRed);
+  font-size: 1.5rem;
+}
+
+.authPage {
+  display: grid;
+  place-content: center;
+  font-size: 1.5rem;
+  row-gap: 2rem;
+  transform: translateY(-5%);
+}
+
+.authPage h1 {
+  text-align: center;
+}
+
+.authPage form {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+  -moz-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+}
+
+.authPage form * {
+  grid-column: span 1;
+}
+
+.authPage form .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.authPage form .button {
+  font-size: 1.25rem;
+  padding: 0.75rem 1rem;
+}
+
+@media screen and (min-width: 900px) {
+  .authPage form {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.5rem;
+  }
+ 
+  .authPage form .password {
+    grid-column: span 2;
+  }
+ 
+  .authPage form .buttons {
+    flex-direction: row;
+    gap: 1.25rem;
+    grid-column: span 2;
+  }
+}
+ 
+/* -- Sign Out Page */
+#signOut {
+  display: grid;
+  place-content: center;
+}
+
+/* -- Deconnexion */
+.deconnexion {
+  display: grid;
+  place-content: center;
+}
+
+/* -- Page suppression */
+
+#pageSuppression .buttons{
+  display: flex;
+  gap: 1rem;
+}
+
+/* === RGPC === */
+
+main.rgpd{
+   display: flex;
+   flex-direction: column;
+   gap: 4rem;
+   padding: 3rem 0;
+}
+
+main.rgpd .topics {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+main.rgpd h1 {
+  font-size: 4rem;
+  font-style: italic;
+  margin-top: -1.5rem;
+  margin-bottom: -3rem;
+}
+
+main.rgpd .topics h2 {
+  font-size: 2.25rem;
+  font-style: italic;
+}
+
+main.rgpd .topics p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding-left: 1.75rem;
+}
+
+main.rgpd .topics p ul li {
+  font-size: 1.5rem;
 }
