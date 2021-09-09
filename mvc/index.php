@@ -36,7 +36,6 @@
         require_once($nom_fichier);
         $controller = new $nom_classe();
     } else {
-
         exit("page not found !");
     }
 
